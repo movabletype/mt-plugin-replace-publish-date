@@ -1,0 +1,21 @@
+id: ReplacePublishDate
+key: ReplacePublishDatreple
+name: Replace publish Date and time
+
+description: <MT_TRANS phrase="This plugin replaces the Published Date & Time with the current date and time automatically when you save the entry.">
+version: 1.0
+schema_version: 1
+author_name: 'Six Apart, Ltd.'
+author_link: https://movabletype.org/
+plugin_link: https://github.com/movabletype/mt-plugin-now-as-publish-date
+
+l10n_class: ReplacePublishDate::L10N
+
+object_types:
+    entry:
+        change_publish_date: meta boolean
+        change_publish_time: meta boolean
+
+callbacks:
+    template_param.edit_entry: $ReplacePublishDate::ReplacePublishDate::Transformer::template_param_edit_entry
+    cms_post_save.entry: $ReplacePublishDate::ReplacePublishDate::CMS::cms_post_save_entry
