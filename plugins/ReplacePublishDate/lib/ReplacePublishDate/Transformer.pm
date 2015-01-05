@@ -8,7 +8,8 @@ sub template_param_edit_entry {
     my $plugin = MT->component('ReplacePublishDate');
 
     # Load?
-    my ( $checked_date, $checked_time );
+    my $checked_date = '';
+    my $checked_time = '';
     if ( my $id = $app->param('id') ) {
         if ( my $e = $app->model('entry')->load($id) ) {
             $checked_date = ( $e->meta('change_publish_date') || 0 ) ? ' checked="checked"' : '';
